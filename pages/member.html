@@ -15,11 +15,16 @@ HTML-kommentar: Strukturöversikt
         <!-- 1. Head -->
         <meta charset="UTF-8" />
         <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+        <link rel="stylesheet" href="/assets/css/nav-footer.css" />
         <link rel="stylesheet" href="/assets/css/member.css" />
         <title>Juice&Co - Min sida</title>
     </head>
 
     <body>
+        <!-- Loader -->
+        <div id="loader">
+            <div class="loader-spinner"></div>
+        </div>
         <!-- 2.1 Header -->
         <header>
             <div id="header"></div>
@@ -74,6 +79,12 @@ HTML-kommentar: Strukturöversikt
             <div id="footer"></div>
         </footer>
 
+        <script>
+            window.addEventListener("load", () => {
+                const loader = document.getElementById("loader");
+                loader.classList.add("loader-hidden");
+            });
+        </script>
         <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
         <script src="/assets/js/components.js"></script>
         <script src="/assets/js/navbar.js"></script>

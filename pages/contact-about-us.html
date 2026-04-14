@@ -21,10 +21,15 @@ HTML-kommentar: Strukturöversikt
         <title>Juice&Co - About Us & Contact</title>
 
         <!-- Lokal CSS -->
+        <link rel="stylesheet" href="/assets/css/nav-footer.css" />
         <link rel="stylesheet" href="/assets/css/contact-about-us.css" />
     </head>
 
     <body>
+        <!-- Loader -->
+        <div id="loader">
+            <div class="loader-spinner"></div>
+        </div>
         <!-- 2.1 Header -->
         <header>
             <div id="header"></div>
@@ -116,6 +121,12 @@ HTML-kommentar: Strukturöversikt
         </footer>
 
         <!-- 3. Script -->
+        <script>
+            window.addEventListener("load", () => {
+                const loader = document.getElementById("loader");
+                loader.classList.add("loader-hidden");
+            });
+        </script>
         <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
         <script src="/assets/js/components.js"></script>
         <script src="/assets/js/products-data.js"></script>

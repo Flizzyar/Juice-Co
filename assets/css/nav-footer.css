@@ -22,6 +22,37 @@ CSS-kommentar: Strukturöversikt
    7.4 Nederdel och skiljelinje
 */
 
+/* 0. Loader */
+
+#loader {
+    position: fixed;
+    inset: 0;
+    z-index: 9999;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background: linear-gradient(135deg, #fff6f2 0%, #ffe6e0 50%, #ffd5cc 100%);
+    transition: opacity 0.4s ease;
+}
+
+#loader.loader-hidden {
+    opacity: 0;
+    pointer-events: none;
+}
+
+.loader-spinner {
+    width: 48px;
+    height: 48px;
+    border: 5px solid #ffd5cc;
+    border-top-color: #403226;
+    border-radius: 50%;
+    animation: spin 0.8s linear infinite;
+}
+
+@keyframes spin {
+    to { transform: rotate(360deg); }
+}
+
 /* 1. Root-sektion innehåller färger, skuggor och storleksvariabler */
 html {
     font-size: 100%;
