@@ -1,0 +1,88 @@
+<!--
+HTML-kommentar: Strukturöversikt
+1. Head
+2. Body
+   2.1 Header
+   2.2 Main
+       2.2.1 Sidhuvud med kategori- och sorteringsverktyg
+       2.2.2 Produktlista
+   2.3 Footer
+-->
+
+<!doctype html>
+<html lang="sv">
+    <head>
+        <!-- 1. Head -->
+        <meta charset="UTF-8" />
+        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+        <title>Juice&Co - Products</title>
+        <link rel="stylesheet" href="/assets/css/products.css" />
+    </head>
+
+    <body>
+        <!-- 2.1 Header -->
+        <header>
+            <div id="header"></div>
+        </header>
+
+        <!-- 2.2 Main -->
+        <main>
+            <!-- 2.2.1 Sidhuvud med kategori- och sorteringsverktyg -->
+            <section class="page-header">
+                <h1>PRODUKTER</h1>
+
+                <div class="toolbar-row">
+                    <div id="categoryButtons" class="category-buttons"></div>
+
+                    <div class="sort-wrapper">
+                        <button
+                            id="sortToggle"
+                            class="hamburger"
+                            aria-label="Visa sortering"
+                        >
+                            <span></span>
+                            <span></span>
+                            <span></span>
+                        </button>
+
+                        <div id="sortPanel" class="sort-panel hidden">
+                            <button class="sort-option active" data-sort="">
+                                Standard
+                            </button>
+                            <button class="sort-option" data-sort="price-asc">
+                                Pris: lägst först
+                            </button>
+                            <button class="sort-option" data-sort="price-desc">
+                                Pris: högst först
+                            </button>
+                            <button class="sort-option" data-sort="rating-desc">
+                                Stjärnor: högst först
+                            </button>
+                            <button class="sort-option" data-sort="rating-asc">
+                                Stjärnor: lägst först
+                            </button>
+                        </div>
+                    </div>
+                </div>
+            </section>
+
+            <!-- 2.2.2 Produktlista -->
+            <section class="products-section">
+                <div id="products" class="product-grid"></div>
+            </section>
+            <div id="cartToast" class="cart-toast"></div>
+        </main>
+
+        <!-- 2.3 Footer -->
+        <footer>
+            <div id="footer"></div>
+        </footer>
+
+        <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
+        <script src="/assets/js/components.js"></script>
+        <script src="/assets/js/navbar.js"></script>
+        <script src="/assets/js/cart.js"></script>
+        <script src="/assets/js/products-data.js"></script>
+        <script src="/assets/js/products.js"></script>
+    </body>
+</html>

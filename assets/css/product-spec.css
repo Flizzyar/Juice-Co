@@ -1,0 +1,247 @@
+main {
+    background-color: #efe9e1;
+}
+
+.back-btn {
+    padding: 8px 14px;
+    border: none;
+    font-size: 0.8rem;
+    background-color: #efe9e1;
+    color: #36291f;
+    justify-self: center;
+    align-self: center;
+}
+
+.product-header {
+    width: 100vw;
+    margin-left: calc(-50vw + 50%);
+    background: linear-gradient(to right, #efe9e1 50%, #ffffff 50%);
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    padding: 1rem 0;
+}
+
+.product-detail-card {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    align-items: stretch;
+    width: 100vw;
+    margin-left: calc(-50vw + 50%);
+    background: linear-gradient(to right, #efe9e1 50%, #ffffff 50%);
+}
+
+.product-detail-image {
+    display: flex;
+    justify-content: center;
+}
+
+.product-detail-image img {
+    display: block;
+    margin: 0 auto;
+    max-width: 70%;
+    height: auto;
+    object-fit: contain;
+    padding: 0.5rem;
+}
+
+.product-detail-info {
+    padding: 4rem;
+    background: transparent;
+}
+
+.product-detail-info h1 {
+    margin-bottom: 15px;
+    color: #403226;
+    font-size: 1.5rem;
+}
+
+.rating {
+    margin-bottom: 0.5rem;
+    font-size: 0.8rem;
+    color: #444;
+}
+
+.category {
+    font-weight: 600;
+    margin-bottom: 0.5rem;
+    color: #403226;
+}
+
+.description {
+    margin-bottom: 1rem;
+    color: #555;
+    line-height: 1.6;
+    font-size: 0.9rem;
+}
+
+.price {
+    font-size: 1.5rem;
+    font-weight: bold;
+    color: #403226;
+    margin-bottom: 1rem;
+}
+
+.quantity-selector {
+    display: flex;
+    align-items: center;
+    border: 1px solid #ccc;
+    color: #403226;
+    font-size: 0.9rem;
+}
+
+.quantity-selector button {
+    width: 30px;
+    height: 30px;
+    border: none;
+    background-color: #f3f3f3;
+    color: #36291f;
+}
+
+.quantity-selector button:hover {
+    background-color: #ddd;
+}
+
+.quantity-selector span {
+    width: 30px;
+    text-align: center;
+    font-weight: bold;
+}
+
+.add-to-cart-btn {
+    padding: 0.5rem 0.6rem;
+    border: none;
+    border-radius: 6px;
+    background-color: black;
+    color: #f5f7f4;
+    cursor: pointer;
+    font-size: 0.9rem;
+}
+
+.add-to-cart-btn:hover {
+    opacity: 0.8;
+}
+
+.cart-toast {
+    position: fixed;
+    bottom: 20px;
+    right: 20px;
+    background: #36291f;
+    color: #fff;
+    padding: 14px 18px;
+    border-radius: 8px;
+    font-size: 0.9rem;
+    box-shadow: 0 8px 25px rgba(0, 0, 0, 0.2);
+    opacity: 0;
+    transform: translateY(20px);
+    pointer-events: none;
+    transition: all 0.3s ease;
+    z-index: 9999;
+}
+
+.cart-toast.show {
+    opacity: 1;
+    transform: translateY(0);
+}
+
+/* REVIEWS */
+
+.reviews-section {
+    padding: 2rem 4rem;
+    background: #efe9e1;
+}
+
+.review-card {
+    border-bottom: 1px solid #eee;
+    padding: 1rem 0;
+}
+
+.review-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.review-comment {
+    margin: 0.5rem 0;
+    color: #555;
+    font-size: 0.9rem;
+}
+
+.stars {
+    color: #f5a623;
+    font-size: 1rem;
+}
+
+.delete-btn {
+    background: none;
+    border: none;
+    color: #a00;
+    font-size: 0.8rem;
+    cursor: pointer;
+}
+
+#reviewFormContainer {
+    padding: 2rem 4rem;
+    background: #efe9e1;
+}
+
+#reviewFormContainer textarea {
+    width: 100%;
+    height: 80px;
+    margin: 0.5rem 0;
+    padding: 0.5rem;
+}
+
+#reviewFormContainer button {
+    background: black;
+    color: white;
+    border: none;
+    padding: 0.5rem 1rem;
+    cursor: pointer;
+}
+
+@media (max-width: 990px) {
+    .product-header {
+        width: 100%;
+        margin-left: 0;
+        grid-template-columns: 1fr;
+        background: #efe9e1;
+        padding: 1rem 0 0;
+    }
+
+    .back-btn {
+        justify-self: start;
+        margin-left: 1rem;
+    }
+
+    .product-detail-card {
+        grid-template-columns: 1fr;
+        width: 100%;
+        margin-left: 0;
+        background: linear-gradient(to bottom, #efe9e1 50%, #ffffff 50%);
+    }
+
+    .product-detail-image {
+        padding: 1.5rem 1rem 1rem;
+    }
+
+    .product-detail-image img {
+        max-width: 100%;
+        width: auto;
+        height: auto;
+        object-fit: contain;
+        padding: 0.5rem;
+    }
+
+    .product-detail-info {
+        padding: 2rem 1.25rem;
+    }
+
+    .price {
+        font-size: 1.3rem;
+    }
+
+    .add-to-cart-btn {
+        width: 70%;
+    }
+}

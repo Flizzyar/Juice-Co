@@ -1,0 +1,84 @@
+<!--
+HTML-kommentar: Strukturöversikt
+1. Head
+2. Body
+   2.1 Header
+   2.2 Main
+       2.2.1 Hero-sektion
+       2.2.2 Innehållssektion
+   2.3 Footer
+-->
+
+<!doctype html>
+<html lang="sv">
+    <head>
+        <!-- 1. Head -->
+        <meta charset="UTF-8" />
+        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+        <link rel="stylesheet" href="/assets/css/member.css" />
+        <title>Juice&Co - Min sida</title>
+    </head>
+
+    <body>
+        <!-- 2.1 Header -->
+        <header>
+            <div id="header"></div>
+        </header>
+
+        <!-- 2.2 Main -->
+        <main class="member-page">
+            <!-- 2.2.1 Hero-sektion -->
+            <section class="member-hero">
+                <div>
+                    <p>Välkommen tillbaka <span id="member-name"></span></p>
+                    <h1>Min sida</h1>
+                    <p class="member-info">
+                        Här kan du se dina beställningar, dina recensioner och
+                        hantera ditt konto.
+                    </p>
+                </div>
+
+                <button id="member-logout-btn" class="logout-btn">
+                    Logga ut
+                </button>
+            </section>
+
+            <!-- 2.2.2 Innehållssektion -->
+            <section class="member-layout">
+                <section class="member-content">
+                    <!-- Beställningar -->
+                    <section class="panel" id="bestallningar">
+                        <div class="section-header">
+                            <h3>Mina beställningar</h3>
+                            <p>Här visas dina senaste köp.</p>
+                        </div>
+
+                        <div class="card-list" id="member-orders"></div>
+                    </section>
+
+                    <!-- Recensioner -->
+                    <section class="panel" id="recensioner">
+                        <div class="section-header">
+                            <h3>Mina recensioner</h3>
+                            <p>Dina skrivna recensioner kommer visas här.</p>
+                        </div>
+
+                        <div class="card-list" id="member-reviews"></div>
+                    </section>
+                </section>
+            </section>
+        </main>
+
+        <!-- 2.3 Footer -->
+        <footer>
+            <div id="footer"></div>
+        </footer>
+
+        <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
+        <script src="/assets/js/components.js"></script>
+        <script src="/assets/js/navbar.js"></script>
+        <script src="/assets/js/cart.js"></script>
+        <script src="/assets/js/products-data.js"></script>
+        <script src="/assets/js/member.js"></script>
+    </body>
+</html>

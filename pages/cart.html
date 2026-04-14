@@ -1,0 +1,89 @@
+<!--
+HTML-kommentar: Strukturöversikt
+1. Head
+2. Body
+   2.1 Header
+   2.2 Main
+       2.2.1 Kundvagnsheader
+       2.2.2 Kundvagnslista och sammanfattning
+   2.3 Footer
+-->
+
+<!doctype html>
+<html lang="sv">
+    <head>
+        <!-- 1. Head -->
+        <meta charset="UTF-8" />
+        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+        <title>Juice&Co - Kundvagn</title>
+
+        <link rel="stylesheet" href="/assets/css/cart.css" />
+    </head>
+
+    <body>
+        <!-- 2.1 Header -->
+        <header>
+            <div id="header"></div>
+        </header>
+
+        <!-- 2.2 Main -->
+        <main class="cart-page">
+            <!-- 2.2.1 Kundvagnsheader -->
+            <section class="cart-page-header">
+                <h1>Din kundvagn</h1>
+                <p>Här ser du produkterna du har lagt till.</p>
+            </section>
+
+            <!-- 2.2.2 Kundvagnslista och sammanfattning -->
+            <section class="cart-layout">
+                <div class="cart-left">
+                    <div id="cartPageItems" class="cart-page-items">
+                        <p>Laddar kundvagn...</p>
+                    </div>
+                </div>
+
+                <aside class="cart-summary">
+                    <h2>Orderöversikt</h2>
+
+                    <div class="summary-row">
+                        <span>Antal produkter</span>
+                        <span id="cartPageCount">0</span>
+                    </div>
+
+                    <div class="summary-row summary-total">
+                        <span>Totalt</span>
+                        <span id="cartPageTotal">0 kr</span>
+                    </div>
+
+                    <div class="summary-actions">
+                        <a
+                            href="/pages/products.html"
+                            class="btn btn-outline-secondary"
+                        >
+                            Fortsätt handla
+                        </a>
+
+                        <button
+                            id="place-order-btn"
+                            type="button"
+                            class="btn btn-dark"
+                        >
+                            Lägg order
+                        </button>
+                    </div>
+                </aside>
+            </section>
+        </main>
+
+        <!-- 2.3 Footer -->
+        <footer>
+            <div id="footer"></div>
+        </footer>
+
+        <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
+        <script src="/assets/js/components.js"></script>
+        <script src="/assets/js/products-data.js"></script>
+        <script src="/assets/js/navbar.js"></script>
+        <script src="/assets/js/cart.js"></script>
+    </body>
+</html>

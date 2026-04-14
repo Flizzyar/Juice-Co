@@ -1,0 +1,578 @@
+/*
+CSS-kommentar: Strukturöversikt
+1. Root-sektion innehåller färger, skuggor och storleksvariabler
+2. Navbar-sektion innehåller styling för huvudnavigeringen
+   2.1 Grundstil för navbar, länkar och logotyp
+   2.2 Layout för desktop
+   2.3 Styling för menyknapp
+3. Knappsektion innehåller styling för primärknappar
+4. Konto- och varukorgssektion innehåller dropdown, ikoner och paneler
+   4.1 Ikonknappar för konto och varukorg
+   4.2 Hover- och aktivt läge
+   4.3 Dropdownpaneler och innehåll
+   4.4 Varukorgens produktkontroller
+5. Produktmeny-sektion innehåller mega menu och produktkort
+6. Sidlayout-sektion innehåller regler för att footern alltid ska ligga längst ner
+   6.1 HTML- och body-struktur för full höjd
+   6.2 Main-sektion som fyller ut återstående utrymme
+7. Footer-sektion innehåller styling för sidfoten
+   7.1 Grundstil för footer
+   7.2 Rubriker och text
+   7.3 Länkar
+   7.4 Nederdel och skiljelinje
+*/
+
+/* 1. Root-sektion innehåller färger, skuggor och storleksvariabler */
+html {
+    font-size: 100%;
+}
+
+:root {
+    --brand-bg: #b23a48;
+    --brand-text: #f5f7f4;
+    --card-bg: #ffffff;
+    --shadow-soft: 0 0.625rem 1.5625rem rgba(0, 0, 0, 0.08);
+    --radius-lg: 1rem;
+    --menu-panel-bg: #f3f3f3;
+    --menu-border: #111111;
+}
+
+/* 2. Navbar-sektion innehåller styling för huvudnavigeringen */
+/* 2.1 Grundstil för navbar, länkar och logotyp */
+.shop-navbar {
+    height: 3rem;
+    background-color: var(--brand-bg);
+    font-size: 0.875rem;
+    overflow: visible;
+}
+
+.shop-navbar .navbar-brand,
+.shop-navbar .nav-link,
+.shop-navbar .nav-link.active,
+.shop-navbar .dropdown-toggle {
+    color: var(--brand-text) !important;
+}
+
+.shop-navbar .navbar-brand {
+    letter-spacing: 0.03125rem;
+    font-size: 1.125rem !important;
+}
+
+.shop-navbar .nav-link {
+    font-weight: 400;
+}
+
+.shop-navbar .nav-link:hover,
+.shop-navbar .navbar-brand:hover {
+    text-decoration: underline;
+    opacity: 0.8;
+    text-underline-offset: 0.3125rem;
+}
+
+#logo {
+    text-decoration: none;
+}
+
+.navbar-actions {
+    padding-left: 2rem;
+}
+
+/* 2.2 Layout för desktop */
+.mobile-nav-wrap {
+    display: flex;
+    align-items: center;
+    flex-wrap: nowrap;
+}
+
+.mobile-centered-logo {
+    position: static;
+    transform: none;
+    margin-right: 1rem;
+    white-space: nowrap;
+    flex-shrink: 0;
+}
+
+#mainNavbar {
+    order: 2;
+    flex-grow: 1;
+    flex-basis: auto;
+}
+
+.mobile-icons {
+    order: 3;
+    margin-left: auto;
+    padding-left: 2rem;
+    gap: 0.5rem;
+    flex-shrink: 0;
+}
+
+/* 2.3 Styling för menyknapp */
+.shop-navbar .navbar-toggler {
+    border: none;
+    color: #f5f7f4;
+    font-size: 1.6rem;
+}
+
+.shop-navbar .navbar-toggler:focus {
+    box-shadow: none;
+}
+
+/* 3. Knappsektion innehåller styling för primärknappar */
+.btn-shop-primary {
+    color: var(--brand-text) !important;
+    background-color: #972f3c !important;
+    border: 0.0625rem solid var(--brand-bg) !important;
+    transition:
+        transform 0.2s ease,
+        box-shadow 0.2s ease;
+    font-size: 0.9375rem;
+}
+
+.btn-shop-primary:hover {
+    color: var(--brand-text) !important;
+    transform: translateY(-0.125rem);
+    box-shadow: var(--shadow-soft);
+}
+
+/* 4. Konto- och varukorgssektion innehåller dropdown, ikoner och paneler */
+/* 4.1 Wrapper för dropdown */
+.account-dropdown,
+.cart-wrapper {
+    position: relative;
+}
+
+/* 4.2 Ikonknappar för konto och varukorg */
+.account-trigger,
+.cart-trigger {
+    width: 3rem;
+    height: 3rem;
+    padding: 0;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    position: relative;
+    background: transparent !important;
+    border: none !important;
+    box-shadow: none !important;
+    outline: none !important;
+    color: var(--brand-text) !important;
+    line-height: 1;
+}
+
+.account-trigger i,
+.cart-trigger i {
+    position: relative;
+    z-index: 1;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    line-height: 1;
+}
+
+.account-trigger i {
+    font-size: 1.1rem;
+    margin-top: 0.6rem;
+}
+
+.cart-trigger i {
+    font-size: 1rem;
+    margin-top: 0.4rem;
+}
+
+.account-trigger::before,
+.cart-trigger::before {
+    content: '';
+    position: absolute;
+    inset: 0;
+    border: 0.125rem solid transparent;
+    background: transparent;
+    transition:
+        border-color 0s,
+        background-color 0s;
+    pointer-events: none;
+    z-index: 0;
+}
+
+/* 4.3 Hover- och aktivt läge */
+.account-trigger:hover::before,
+.account-trigger:focus::before,
+.cart-trigger:hover::before,
+.cart-trigger:focus::before,
+.account-trigger.show::before,
+.cart-trigger.show::before,
+.account-dropdown:hover .account-trigger::before,
+.cart-wrapper:hover .cart-trigger::before {
+    background: var(--menu-panel-bg);
+    border-color: var(--menu-border);
+}
+
+.account-dropdown:hover .account-trigger::before,
+.cart-wrapper:hover .cart-trigger::before,
+.account-dropdown > .account-trigger.show::before,
+.cart-wrapper > .cart-trigger.show::before {
+    border-bottom-color: transparent;
+}
+
+.account-trigger:hover,
+.account-trigger:focus,
+.cart-trigger:hover,
+.cart-trigger:focus,
+.account-trigger.show,
+.cart-trigger.show,
+.account-dropdown:hover .account-trigger,
+.cart-wrapper:hover .cart-trigger {
+    color: var(--menu-border) !important;
+}
+
+.account-dropdown:hover > .account-trigger,
+.cart-wrapper:hover > .cart-trigger,
+.account-dropdown > .account-trigger.show,
+.cart-wrapper > .cart-trigger.show {
+    position: relative;
+    z-index: 1001;
+}
+
+/* 4.4 Dropdownpaneler och innehåll */
+.account-menu,
+.cart-dropdown {
+    min-width: 20rem;
+    margin-top: 0 !important;
+    top: calc(100% - 0.125rem) !important;
+    left: auto !important;
+    right: 0 !important;
+    transform: none !important;
+    border: 0.125rem solid var(--menu-border) !important;
+    border-radius: 0 !important;
+    box-shadow: none !important;
+    padding: 0 !important;
+    background: var(--menu-panel-bg) !important;
+}
+
+.dropdown-menu[data-bs-popper] {
+    margin-top: 0 !important;
+}
+
+.account-menu-inner,
+.cart-menu-inner {
+    width: 18.75rem;
+    padding: 1rem;
+}
+
+.account-login-btn {
+    display: block;
+    width: 100%;
+    background: #000;
+    color: var(--brand-text) !important;
+    text-decoration: none;
+    font-weight: 700;
+    font-size: 1rem;
+    text-align: center;
+    padding: 1.125rem 1.25rem;
+    margin-bottom: 1.125rem;
+    border: 0.125rem solid #000;
+    border-radius: 0;
+}
+
+.logout {
+    display: flex;
+    justify-content: end;
+    color: #111;
+    font-weight: 700;
+    text-decoration: none;
+}
+
+.account-login-btn:hover {
+    opacity: 0.8;
+}
+
+.account-register-row {
+    display: flex;
+    justify-content: end;
+    gap: 0.625rem;
+    font-size: 0.9375rem;
+    margin-bottom: 1.125rem;
+    color: #111;
+}
+
+.account-register-link {
+    color: #111;
+    font-weight: 700;
+    text-decoration: none;
+}
+
+.account-register-link:hover {
+    text-decoration: underline;
+}
+
+.logout:hover {
+    text-decoration: underline;
+}
+
+.account-menu .dropdown-item {
+    padding: 1.125rem;
+    color: #111 !important;
+    font-size: 0.9375rem;
+    background: transparent !important;
+}
+
+.account-menu .dropdown-item:hover {
+    color: #111 !important;
+    text-decoration: underline;
+}
+
+.account-menu hr,
+.cart-dropdown hr {
+    margin: 0 0 0.5rem 0;
+    border-top: 0.0625rem solid #cfcfcf;
+    opacity: 1;
+}
+
+/* 4.5 Varukorgens produktkontroller */
+.cart-controls {
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+    flex-wrap: wrap;
+}
+
+.qty-btn {
+    width: 2rem;
+    height: 2rem;
+    border: 0.0625rem solid #111;
+    background: #fff;
+    cursor: pointer;
+    font-size: 1rem;
+    line-height: 1;
+}
+
+.qty-value {
+    min-width: 1.25rem;
+    text-align: center;
+    font-weight: 600;
+    font-size: 0.9375rem;
+}
+
+.remove-btn {
+    border: none;
+    background: transparent;
+    text-decoration: underline;
+    font-size: 0.875rem;
+    cursor: pointer;
+    padding: 0;
+    margin-left: 0.5rem;
+}
+
+.cart-item-img {
+    width: 3.5rem;
+    height: 3.5rem;
+    object-fit: cover;
+    border: 0.0625rem solid #ddd;
+}
+
+.cart-btn-badge {
+    font-size: 0.75rem;
+}
+
+/* 5. Produktmeny-sektion innehåller mega menu och produktkort */
+
+.shop-navbar .nav-item.dropdown {
+    position: relative;
+}
+
+.shop-navbar .mega-menu {
+    display: none;
+    position: absolute;
+    top: 100% -1px;
+    left: 0;
+    width: 22rem;
+    min-width: 22rem;
+    padding: 0;
+    margin-top: 0;
+    border: 0;
+    border-radius: 0;
+    background-color: var(--brand-bg);
+    z-index: 1050;
+}
+
+.mega-product-card {
+    display: block;
+    height: 100%;
+    text-decoration: none;
+    color: #212529;
+    background: #efe9e1 !important;
+    overflow: hidden;
+    transition:
+        transform 0.2s ease,
+        box-shadow 0.2s ease;
+}
+
+.mega-product-card:hover {
+    transform: translateY(-0.25rem);
+    box-shadow: var(--shadow-soft);
+}
+
+.mega-product-img {
+    width: 100%;
+    height: 11.25rem;
+    object-fit: cover;
+    display: block;
+}
+
+.mega-product-body {
+    padding: 0.875rem;
+}
+
+.mega-product-body h6 {
+    font-size: 1rem;
+}
+
+.mega-product-body p {
+    color: #6c757d;
+    font-size: 0.875rem;
+}
+
+/* 6. Sidlayout-sektion innehåller regler för att footern alltid ska ligga längst ner */
+/* 6.1 HTML- och body-struktur för full höjd */
+html,
+body {
+    height: 100%;
+}
+
+body {
+    min-height: 100vh;
+    display: flex;
+    flex-direction: column;
+    font-size: 0.875rem;
+    line-height: 1.5;
+}
+
+/* 6.2 Main-sektion som fyller ut återstående utrymme */
+main {
+    flex: 1;
+}
+
+/* 7. Footer-sektion innehåller styling för sidfoten */
+/* 7.1 Grundstil för footer */
+.site-footer {
+    margin-top: auto;
+    background-color: var(--brand-bg);
+    color: #f5f7f4;
+    padding-top: 1rem;
+}
+
+/* 7.2 Rubriker och text */
+.footer-title {
+    font-size: 1rem;
+    font-weight: 700;
+    margin-bottom: 0.75rem;
+}
+
+.footer-heading {
+    font-size: 0.9375rem;
+    font-weight: 700;
+    margin-bottom: 0.75rem;
+}
+
+.footer-text {
+    color: rgba(245, 247, 244, 0.85);
+    font-size: 0.875rem;
+}
+
+/* 7.3 Länkar */
+.footer-links li + li {
+    margin-top: 0.5rem;
+}
+
+.footer-links a {
+    color: rgba(245, 247, 244, 0.85);
+    text-decoration: none;
+    transition: opacity 0.2s ease;
+    font-size: 0.875rem;
+}
+
+.footer-links a:hover {
+    color: #f5f7f4;
+    text-decoration: underline;
+    text-underline-offset: 0.25rem;
+}
+
+.footer-divider {
+    border-color: rgba(245, 247, 244, 0.2);
+    margin-top: 1.5rem;
+    margin-bottom: 1rem;
+    opacity: 1;
+}
+
+.footer-bottom {
+    font-size: 0.875rem;
+    color: rgba(245, 247, 244, 0.7);
+}
+
+@media (min-width: 992px) {
+    .account-dropdown:hover > .account-menu,
+    .cart-wrapper:hover > .cart-dropdown,
+    .nav-item.dropdown:hover > .mega-menu {
+        display: block;
+    }
+
+    .account-menu,
+    .cart-dropdown,
+    .mega-menu {
+        margin-top: 0 !important;
+    }
+}
+
+@media (max-width: 991.98px) {
+    .shop-navbar {
+        height: auto;
+        min-height: 4rem;
+    }
+
+    #logo {
+        margin-top: 5px;
+    }
+
+    .mobile-nav-wrap {
+        position: relative;
+    }
+
+    .mobile-centered-logo {
+        position: absolute;
+        left: 50%;
+        top: 0;
+        transform: translateX(-50%);
+        margin: 0;
+        font-size: 1.1rem !important;
+    }
+
+    .mobile-icons {
+        order: 2;
+        margin-left: auto;
+        padding-left: 0;
+        gap: 0.2rem;
+    }
+
+    .account-trigger i {
+        font-size: 1.2rem;
+        margin-top: 0.5rem;
+    }
+
+    .cart-trigger i {
+        font-size: 1.1rem;
+        margin-top: 0.4rem;
+    }
+
+    .navbar-collapse {
+        order: 3;
+        width: 100%;
+        margin-top: 0.6rem;
+    }
+
+    .shop-navbar .navbar-nav {
+        margin-left: 0 !important;
+    }
+
+    .site-footer {
+        text-align: center;
+    }
+}
