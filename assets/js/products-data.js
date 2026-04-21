@@ -6,7 +6,7 @@ window.PRODUCTS = [
         price: 55,
         category: { category_id: 1, title: "Fruktjuicer" },
         in_stock: true,
-        image: "/assets/media/antiox-trans.png",
+        image: "/assets/media/antiox-trans.webp",
         rating: 4
     },
     {
@@ -16,7 +16,7 @@ window.PRODUCTS = [
         price: 60,
         category: { category_id: 3, title: "Tropiska" },
         in_stock: true,
-        image: "/assets/media/boost-trans.png",
+        image: "/assets/media/boost-trans.webp",
         rating: 5
     },
     {
@@ -26,7 +26,7 @@ window.PRODUCTS = [
         price: 50,
         category: { category_id: 1, title: "Fruktjuicer" },
         in_stock: false,
-        image: "/assets/media/carrot-trans.png",
+        image: "/assets/media/carrot-trans.webp",
         rating: 3
     },
     {
@@ -36,7 +36,7 @@ window.PRODUCTS = [
         price: 65,
         category: { category_id: 2, title: "Gröna" },
         in_stock: true,
-        image: "/assets/media/cleanse-trans.png",
+        image: "/assets/media/cleanse-trans.webp",
         rating: 4
     },
     {
@@ -46,7 +46,7 @@ window.PRODUCTS = [
         price: 55,
         category: { category_id: 3, title: "Tropiska" },
         in_stock: true,
-        image: "/assets/media/ginger-trans.png",
+        image: "/assets/media/ginger-trans.webp",
         rating: 5
     },
     {
@@ -56,7 +56,7 @@ window.PRODUCTS = [
         price: 70,
         category: { category_id: 4, title: "Bär" },
         in_stock: true,
-        image: "/assets/media/rose-trans.png",
+        image: "/assets/media/rose-trans.webp",
         rating: 4
     }
 ]

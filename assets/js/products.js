@@ -121,7 +121,7 @@ function render(products) {
         }
 
         div.innerHTML = `
-            <img src="${p.image}" alt="${p.title}">
+            <img src="${p.image}" alt="${p.title}" loading="lazy" width="1024" height="1024">
             <div class="product-content">
             <div class="rating">
             ${renderStars(p.rating)} (${p.rating}/5)

@@ -41,8 +41,13 @@ CSS-kommentar: Strukturöversikt
     top: 0;
 }
 
+.hero-image picture {
+    display: block;
+}
+
 .hero-image img {
     width: 53rem;
+    height: auto;
 }
 
 .main-products {
@@ -75,12 +80,17 @@ CSS-kommentar: Strukturöversikt
     background: #efe9e1;
 }
 
+.product-card picture {
+    display: contents;
+}
+
 .product-image {
     position: absolute;
     left: -2rem;
     bottom: -2rem;
     max-height: 90%;
     width: auto;
+    height: auto;
     object-fit: contain;
 }
 

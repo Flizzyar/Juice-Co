@@ -1,39 +1,24 @@
-<!--
-HTML-kommentar: Strukturöversikt
-1. Head
-2. Body
-   2.1 Header
-   2.2 Main
-       2.2.1 Hero-sektion
-       2.2.2 Produktsektion
-   2.3 Footer
-3. Script-sektion
--->
-
-
-
 <!doctype html>
 <html lang="sv">
     <head>
-        <!-- 1. Head -->
         <meta charset="UTF-8" />
         <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+        <meta name="description" content="Juice&Co – Färsk juice skapad för energi. Naturliga ingredienser, full av smak. Shoppa våra juicer online." />
 
         <title>Juice&Co</title>
 
-        <!-- Lokal CSS -->
+        <!-- Lokal CSS – kritisk, render-blocking -->
         <link rel="stylesheet" href="assets/css/nav-footer.css" />
         <link rel="stylesheet" href="assets/css/index.css" />
         <link rel="icon" href="data:," />
 
-        <!-- Bootstrap och ikoner -->
+        <!-- Preload LCP-bild -->
+        <link rel="preload" as="image" href="./assets/media/hero.webp" type="image/webp" />
+
+        <!-- Bootstrap CSS – blockerande för att undvika layout shift (CLS) -->
         <link
             href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css"
             rel="stylesheet"
-        />
-        <link
-            rel="stylesheet"
-            href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.css"
         />
     </head>
 
@@ -43,17 +28,16 @@ HTML-kommentar: Strukturöversikt
             <div class="loader-spinner"></div>
         </div>
 
-        <!-- 2.1 Header -->
+        <!-- Header -->
         <header>
             <div id="header"></div>
         </header>
 
-        <!-- 2.2 Main -->
+        <!-- Main -->
         <main>
-            <!-- 2.2.1 Hero-sektion -->
+            <!-- Hero-sektion -->
             <section class="hero">
                 <div class="container hero-container">
-                    <!-- Textinnehåll -->
                     <div class="hero-content">
                         <h1 class="hero-title">
                             Färsk Juice<br />
@@ -73,28 +57,40 @@ HTML-kommentar: Strukturöversikt
                         </a>
                     </div>
 
-                    <!-- Bild -->
+                    <!-- LCP-bild med WebP och PNG-fallback -->
                     <div class="hero-image">
-                        <img
-                            class="hero-image"
-                            src="./assets/media/hero.png"
-                            alt="Juice bottle"
-                        />
+                        <picture>
+                            <source srcset="./assets/media/hero.webp" type="image/webp" />
+                            <img
+                                class="hero-image"
+                                src="./assets/media/hero.png"
+                                alt="Juice bottle"
+                                width="1536"
+                                height="1024"
+                                fetchpriority="high"
+                            />
+                        </picture>
                     </div>
                 </div>
             </section>
 
-            <!-- 2.2.2 Produktsektion -->
+            <!-- Produktsektion -->
             <section class="main-products">
                 <h2>Upptäck Våra Produkter!</h2>
 
                 <section class="products-grid">
                     <article class="product-card card-antiox">
-                        <img
-                            src="/assets/media/antiox-trans.png"
-                            alt=""
-                            class="product-image"
-                        />
+                        <picture>
+                            <source srcset="/assets/media/antiox-trans.webp" type="image/webp" />
+                            <img
+                                src="/assets/media/antiox-trans.png"
+                                alt="Röd Antiox juice"
+                                class="product-image"
+                                width="1024"
+                                height="1024"
+                                loading="lazy"
+                            />
+                        </picture>
                         <div class="product-content">
                             <h3>Röd Antiox</h3>
                             <p>
@@ -113,11 +109,17 @@ HTML-kommentar: Strukturöversikt
                     </article>
 
                     <article class="product-card card-boost">
-                        <img
-                            src="/assets/media/boost-trans.png"
-                            alt=""
-                            class="product-image"
-                        />
+                        <picture>
+                            <source srcset="/assets/media/boost-trans.webp" type="image/webp" />
+                            <img
+                                src="/assets/media/boost-trans.png"
+                                alt="Tropisk Boost juice"
+                                class="product-image"
+                                width="1024"
+                                height="1024"
+                                loading="lazy"
+                            />
+                        </picture>
                         <div class="product-content">
                             <h3>Tropisk Boost</h3>
                             <p>
@@ -136,11 +138,17 @@ HTML-kommentar: Strukturöversikt
                     </article>
 
                     <article class="product-card card-carrot">
-                        <img
-                            src="/assets/media/carrot-trans.png"
-                            alt=""
-                            class="product-image"
-                        />
+                        <picture>
+                            <source srcset="/assets/media/carrot-trans.webp" type="image/webp" />
+                            <img
+                                src="/assets/media/carrot-trans.png"
+                                alt="Apelsin Morot juice"
+                                class="product-image"
+                                width="1024"
+                                height="1024"
+                                loading="lazy"
+                            />
+                        </picture>
                         <div class="product-content">
                             <h3>Apelsin Morot</h3>
                             <p>
@@ -157,11 +165,17 @@ HTML-kommentar: Strukturöversikt
                     </article>
 
                     <article class="product-card card-cleanse">
-                        <img
-                            src="/assets/media/cleanse-trans.png"
-                            alt=""
-                            class="product-image"
-                        />
+                        <picture>
+                            <source srcset="/assets/media/cleanse-trans.webp" type="image/webp" />
+                            <img
+                                src="/assets/media/cleanse-trans.png"
+                                alt="Grön Cleanse juice"
+                                class="product-image"
+                                width="1024"
+                                height="1024"
+                                loading="lazy"
+                            />
+                        </picture>
                         <div class="product-content">
                             <h3>Grön Cleanse</h3>
                             <p>
@@ -180,11 +194,17 @@ HTML-kommentar: Strukturöversikt
                     </article>
 
                     <article class="product-card card-ginger">
-                        <img
-                            src="/assets/media/ginger-trans.png"
-                            alt=""
-                            class="product-image"
-                        />
+                        <picture>
+                            <source srcset="/assets/media/ginger-trans.webp" type="image/webp" />
+                            <img
+                                src="/assets/media/ginger-trans.png"
+                                alt="Ingefära Citron juice"
+                                class="product-image"
+                                width="1024"
+                                height="1024"
+                                loading="lazy"
+                            />
+                        </picture>
                         <div class="product-content">
                             <h3>Ingefära Citron</h3>
                             <p>
@@ -203,11 +223,17 @@ HTML-kommentar: Strukturöversikt
                     </article>
 
                     <article class="product-card card-rose">
-                        <img
-                            src="/assets/media/rose-trans.png"
-                            alt=""
-                            class="product-image"
-                        />
+                        <picture>
+                            <source srcset="/assets/media/rose-trans.webp" type="image/webp" />
+                            <img
+                                src="/assets/media/rose-trans.png"
+                                alt="Rosenfrisk juice"
+                                class="product-image"
+                                width="1024"
+                                height="1024"
+                                loading="lazy"
+                            />
+                        </picture>
                         <div class="product-content">
                             <h3>Rosenfrisk</h3>
                             <p>
@@ -227,27 +253,21 @@ HTML-kommentar: Strukturöversikt
             </section>
         </main>
 
-        <!-- 2.3 Footer -->
+        <!-- Footer -->
         <footer>
             <div id="footer"></div>
         </footer>
 
-        <!-- 3. Script-sektion -->
-        <!-- Bootstrap -->
-        <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
-
-        <!-- Egna script -->
-
         <script>
             window.addEventListener("load", () => {
-                const loader = document.getElementById("loader");
-                loader.classList.add("loader-hidden");
+                document.getElementById("loader").classList.add("loader-hidden");
             });
         </script>
 
-        <script src="assets/js/components.js"></script>
-        <script src="assets/js/products-data.js"></script>
-        <script src="assets/js/navbar.js"></script>
-        <script src="assets/js/cart.js"></script>
+        <script defer src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
+        <script defer src="assets/js/components.js"></script>
+        <script defer src="assets/js/products-data.js"></script>
+        <script defer src="assets/js/navbar.js"></script>
+        <script defer src="assets/js/cart.js"></script>
     </body>
 </html>

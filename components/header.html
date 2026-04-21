@@ -16,10 +16,28 @@ HTML-kommentar: Strukturöversikt
         href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css"
         rel="stylesheet"
     />
+
+    <!-- Preload icon font to eliminate FOIT -->
+    <link
+        rel="preload"
+        href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/fonts/bootstrap-icons.woff2?b45a9f41b1f5c251"
+        as="font"
+        type="font/woff2"
+        crossorigin
+    />
     <link
         rel="stylesheet"
         href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.css"
     />
+    <!-- Override font-display so icons don't cause invisible-text flash -->
+    <style>
+        @font-face {
+            font-family: "bootstrap-icons";
+            font-display: swap;
+            src: url("https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/fonts/bootstrap-icons.woff2?b45a9f41b1f5c251") format("woff2"),
+                 url("https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/fonts/bootstrap-icons.woff?b45a9f41b1f5c251") format("woff");
+        }
+    </style>
 </head>
 
 <header>
